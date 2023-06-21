@@ -1,0 +1,10 @@
+-- Qual é o preço médio, máximo e mínimo dos produtos?
+-- Quantos produtos existem em cada categoria?
+-- Quais são as categorias distintas existentes na tabela de produtos?
+-- Quais categorias possuem mais de 2 produtos?
+-- Quais são os produtos que possuem a palavra "Livro" em seu nome?
+-- Quais são os 3 produtos mais caros?
+-- Quais produtos têm o preço dentro do intervalo de R$ 50 a R$ 100?
+-- Quais são os produtos com ID 1, 3 e 5?
+-- Qual é o valor total gasto em produtos da categoria "Eletrônicos"?
+-- Quais são os produtos que possuem um preço máximo dentro de cada categoria?
