@@ -7,4 +7,4 @@
 -- Quais produtos têm o preço dentro do intervalo de R$ 50 a R$ 100?
 -- Quais são os produtos com ID 1, 3 e 5?
 -- Qual é o valor total gasto em produtos da categoria "Eletrônicos"?
--- Quais são os produtos que possuem um preço máximo dentro de cada categoria?
+-- Quais são os produtos que pertencem às categorias "Vestuário" ou "Acessórios" e possuem um preço entre R$ 30 e R$ 50?
