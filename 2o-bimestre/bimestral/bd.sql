@@ -1,3 +1,6 @@
+CREATE DATABASE loja-prova;
+USE loja-prova;
+
 CREATE TABLE produtos (
   id INT,
   nome VARCHAR(50),
