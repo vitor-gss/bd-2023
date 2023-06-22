@@ -1,5 +1,5 @@
-CREATE DATABASE loja-prova;
-USE loja-prova;
+CREATE DATABASE lojaprova;
+USE lojaprova;
 
 CREATE TABLE produtos (
   id INT,
