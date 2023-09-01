@@ -83,6 +83,7 @@ CREATE TABLE usuarioserie(
     FK_id_serie INT,
     nota INT,
     avalicao VARCHAR(250),
+    favorito BOOL,
     FOREIGN KEY(FK_login) REFERENCES usuarios(login),
     FOREIGN KEY(FK_id_serie) REFERENCES series(id),
     PRIMARY KEY(FK_login, FK_id_serie)
@@ -93,6 +94,7 @@ CREATE TABLE usuariofilme(
     FK_id_filme INT,
     nota INT,
     avalicao VARCHAR(250),
+    favorito BOOL,
     FOREIGN KEY(FK_login) REFERENCES usuarios(login),
     FOREIGN KEY(FK_id_filme) REFERENCES filmes(id),
     PRIMARY KEY(FK_login, FK_id_filme)
