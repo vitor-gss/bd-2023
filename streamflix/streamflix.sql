@@ -7,7 +7,15 @@ CREATE TABLE usuarios(
     nome VARCHAR(50) NOT NULL,
     nascimento DATE NOT NULL,
     senha VARCHAR(50) NOT NULL,
+    foto varchar(50),
+    bio varchar(250),
     PRIMARY KEY(login)
+);
+
+create table preferenciasUsuarios(
+	preferencia varchar(50),
+    fk_login varchar(50),
+    foreign key (fk_login) references login (usuarios)
 );
 
 CREATE TABLE categorias(
@@ -55,6 +63,10 @@ CREATE TABLE atores(
     PRIMARY KEY(id)
 );
 
+alter table atores add foto varchar(50); 
+alter table atores add dataNascimento varchar(10); 
+alter table atores add dataMorte varchar(10); 
+
 CREATE TABLE diretores(
 	id INT AUTO_INCREMENT,
     nome VARCHAR(50) NOT NULL,
@@ -65,6 +77,7 @@ CREATE TABLE diretores(
 CREATE TABLE amizades(
 	FK_login1 VARCHAR(50),
     FK_login2 VARCHAR(50),
+    favorito bool,
     FOREIGN KEY(FK_login1) REFERENCES usuarios(login),
     FOREIGN KEY(FK_login2) REFERENCES usuarios(login),
     PRIMARY KEY(FK_login1, FK_login2)
