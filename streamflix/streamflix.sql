@@ -15,7 +15,8 @@ CREATE TABLE usuarios(
 create table preferenciasUsuarios(
 	preferencia varchar(50),
     fk_login varchar(50),
-    foreign key (fk_login) references login (usuarios)
+    foreign key (fk_login) references usuarios (login),
+    primary key (preferencia, fk_login)
 );
 
 CREATE TABLE categorias(
@@ -56,6 +57,8 @@ CREATE TABLE filmes(
     PRIMARY KEY(id)
 );
 
+
+
 CREATE TABLE atores(
 	id INT AUTO_INCREMENT,
     nome VARCHAR(50) NOT NULL,
@@ -63,9 +66,6 @@ CREATE TABLE atores(
     PRIMARY KEY(id)
 );
 
-alter table atores add foto varchar(50); 
-alter table atores add dataNascimento varchar(10); 
-alter table atores add dataMorte varchar(10); 
 
 CREATE TABLE diretores(
 	id INT AUTO_INCREMENT,
@@ -102,6 +102,8 @@ CREATE TABLE usuarioserie(
     PRIMARY KEY(FK_login, FK_id_serie)
 );
 
+
+
 CREATE TABLE usuariofilme(
 	FK_login VARCHAR(50),
     FK_id_filme INT,
@@ -112,6 +114,8 @@ CREATE TABLE usuariofilme(
     FOREIGN KEY(FK_id_filme) REFERENCES filmes(id),
     PRIMARY KEY(FK_login, FK_id_filme)
 );
+
+
 
 CREATE TABLE streamingserie(
 	FK_id_streaming INT,
