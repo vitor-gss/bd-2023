@@ -6,4 +6,4 @@
 
 # Listar todos as turmas no qual um estudante está inscrito
 
-# Listar todas as respostas de um determinado
+# Listar todas as respostas de um determinado usuário
