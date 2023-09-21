@@ -1,102 +1,170 @@
--- Inserindo dados nas tabelas principais
-INSERT INTO usuarios (login, email, nome, nascimento, senha) VALUES
-('usuario1', 'usuario1@email.com', 'Usuário 1', '2000-01-01', 'senha123'),
-('usuario2', 'usuario2@email.com', 'Usuário 2', '1995-03-15', 'senha456'),
-('usuario3', 'usuario3@email.com', 'Usuário 3', '1998-07-22', 'senha789');
+-- Inserir dados na tabela 'usuarios'
+INSERT INTO usuarios (login, email, nome, nascimento, senha, foto, bio)
+VALUES
+    ('user1', 'user1@email.com', 'Usuário 1', '1990-01-01', 'senha123', 'foto1.jpg', 'Bio do Usuário 1'),
+    ('user2', 'user2@email.com', 'Usuário 2', '1995-02-15', 'senha456', 'foto2.jpg', 'Bio do Usuário 2'),
+    ('user3', 'user3@email.com', 'Usuário 3', '1988-06-10', 'senha789', 'foto3.jpg', 'Bio do Usuário 3'),
+    ('user4', 'user4@email.com', 'Usuário 4', '1992-11-20', 'senhaabc', 'foto4.jpg', 'Bio do Usuário 4'),
+    ('user5', 'user5@email.com', 'Usuário 5', '1998-03-25', 'senhadef', 'foto5.jpg', 'Bio do Usuário 5'),
+    ('user6', 'user6@email.com', 'Usuário 6', '1994-09-30', 'senhaghi', 'foto6.jpg', 'Bio do Usuário 6');
 
-INSERT INTO categorias (nome) VALUES
-('Ação'),
-('Comédia'),
-('Drama'),
-('Ficção Científica');
+-- Inserir dados na tabela 'categorias'
+INSERT INTO categorias (nome)
+VALUES
+    ('Ação'),
+    ('Comédia'),
+    ('Drama'),
+    ('Ficção Científica'),
+    ('Terror'),
+    ('Romance');
 
-INSERT INTO streamings (nome, valor) VALUES
-('Netflix', 14.99),
-('Amazon Prime Video', 9.99),
-('Disney+', 12.99);
+-- Inserir dados na tabela 'streamings'
+INSERT INTO streamings (nome, valor)
+VALUES
+    ('Netflix', 19.99),
+    ('Amazon Prime Video', 12.99),
+    ('Disney+', 14.99),
+    ('HBO Max', 16.99),
+    ('Hulu', 11.99),
+    ('Apple TV+', 9.99);
 
-INSERT INTO series (nome) VALUES
-('Stranger Things'),
-('Breaking Bad'),
-('Game of Thrones'),
-('The Witcher'),
-('The Crown'),
-('The Mandalorian');
+-- Inserir dados na tabela 'series'
+INSERT INTO series (nome)
+VALUES
+    ('Stranger Things'),
+    ('Friends'),
+    ('Breaking Bad'),
+    ('Black Mirror'),
+    ('The Walking Dead'),
+    ('Game of Thrones');
 
-INSERT INTO episodios (temporada, numero, nome, classificacao, lancamento, FK_id_serie) VALUES
-(1, 1, 'Capítulo 1', 16, '2020-07-04', 1),
-(1, 2, 'Capítulo 2', 16, '2020-07-11', 1),
-(2, 1, 'Pilot', 18, '2008-01-20', 4),
-(2, 2, 'Cat''s in the Bag...', 18, '2008-01-27', 4),
-(1, 3, 'Capítulo 3', 16, '2020-07-18', 4),
-(2, 3, '...And the Bag''s in the River', 18, '2008-02-03', 4);
+-- Inserir dados na tabela 'filmes'
+INSERT INTO filmes (nome, classificacao, lancamento, sinopse)
+VALUES
+    ('Matrix', 14, '1999-03-31', 'Sinopse de Matrix'),
+    ('Forrest Gump', 12, '1994-07-06', 'Sinopse de Forrest Gump'),
+    ('Pulp Fiction', 18, '1994-10-14', 'Sinopse de Pulp Fiction'),
+    ('O Senhor dos Anéis: A Sociedade do Anel', 12, '2001-12-19', 'Sinopse de O Senhor dos Anéis: A Sociedade do Anel'),
+    ('O Iluminado', 18, '1980-05-23', 'Sinopse de O Iluminado'),
+    ('Titanic', 14, '1997-12-19', 'Sinopse de Titanic');
 
-INSERT INTO filmes (nome, classificacao, lancamento) VALUES
-('Matrix', 14, '1999-03-31'),
-('Titanic', 12, '1997-12-19'),
-('Pulp Fiction', 18, '1994-10-14'),
-('Jurassic Park', 12, '1993-06-11'),
-('Forrest Gump', 12, '1994-07-06'),
-('The Shawshank Redemption', 16, '1994-09-23');
+-- Inserir dados na tabela 'atores'
+INSERT INTO atores (nome, bio, foto, dtNasc, dtMorte)
+VALUES
+    ('Keanu Reeves', 'Bio de Keanu Reeves', 'foto_keanu.jpg', '1964-09-02', NULL),
+    ('Tom Hanks', 'Bio de Tom Hanks', 'foto_tom.jpg', '1956-07-09', NULL),
+    ('John Travolta', 'Bio de John Travolta', 'foto_john.jpg', '1954-02-18', NULL),
+    ('Elijah Wood', 'Bio de Elijah Wood', 'foto_elijah.jpg', '1981-01-28', NULL),
+    ('Jack Nicholson', 'Bio de Jack Nicholson', 'foto_jack.jpg', '1937-04-22', NULL),
+    ('Leonardo DiCaprio', 'Bio de Leonardo DiCaprio', 'foto_leo.jpg', '1974-11-11', NULL);
 
-INSERT INTO atores (nome, bio) VALUES
-('Keanu Reeves', 'Ator famoso por sua atuação em "Matrix".'),
-('Leonardo DiCaprio', 'Ator conhecido por seu papel em "Titanic".'),
-('John Travolta', 'Ator renomado por "Pulp Fiction".'),
-('Henry Cavill', 'Ator principal de "The Witcher".'),
-('Olivia Colman', 'Atriz de destaque em "The Crown".'),
-('Pedro Pascal', 'Ator principal de "The Mandalorian".');
+-- Inserir dados na tabela 'diretores'
+INSERT INTO diretores (nome, bio)
+VALUES
+    ('Christopher Nolan', 'Bio de Christopher Nolan'),
+    ('Steven Spielberg', 'Bio de Steven Spielberg'),
+    ('Quentin Tarantino', 'Bio de Quentin Tarantino'),
+    ('Peter Jackson', 'Bio de Peter Jackson'),
+    ('Stanley Kubrick', 'Bio de Stanley Kubrick'),
+    ('Martin Scorsese', 'Bio de Martin Scorsese');
 
-INSERT INTO diretores (nome, bio) VALUES
-('Lana Wachowski', 'Diretora de "Matrix".'),
-('James Cameron', 'Diretor de "Titanic".'),
-('Quentin Tarantino', 'Diretor de "Pulp Fiction".'),
-('Tom Hooper', 'Diretor de "The King''s Speech".'),
-('Peter Jackson', 'Diretor de "The Lord of the Rings".'),
-('Jon Favreau', 'Diretor de "The Jungle Book".');
+-- Inserir dados na tabela 'preferencias'
+INSERT INTO preferencias (FK_login, FK_id)
+VALUES
+    ('user1', 1),
+    ('user1', 2),
+    ('user2', 2),
+    ('user3', 3),
+    ('user3', 4),
+    ('user4', 1);
 
--- Inserindo dados nas tabelas de relacionamento
-INSERT INTO usuariostreaming (FK_login, FK_id_streaming) VALUES
-('usuario1', 1),
-('usuario2', 1),
-('usuario3', 2);
+-- Inserir dados na tabela 'favoritos'
+INSERT INTO favoritos (FK_login1, FK_login2)
+VALUES
+    ('user1', 'user2'),
+    ('user1', 'user3'),
+    ('user2', 'user4');
 
-INSERT INTO usuarioserie (FK_login, FK_id_serie, nota, avalicao) VALUES
-('usuario1', 1, 4, 'Ótima série!'),
-('usuario2', 2, 5, 'Incrível!'),
-('usuario3', 3, 4, 'Muito boa!');
+-- Inserir dados na tabela 'usuariostreaming'
+INSERT INTO usuariostreaming (FK_login, FK_id_streaming)
+VALUES
+    ('user1', 1),
+    ('user2', 1),
+    ('user3', 2);
 
-INSERT INTO usuariofilme (FK_login, FK_id_filme, nota, avalicao) VALUES
-('usuario1', 1, 4, 'Um clássico!'),
-('usuario2', 2, 5, 'Maravilhoso!'),
-('usuario3', 3, 4, 'Excelente!');
+-- Inserir dados na tabela 'categoriaserie'
+INSERT INTO categoriaserie (FK_id_categoria, FK_id_serie)
+VALUES
+    (1, 1),
+    (2, 2),
+    (3, 3);
 
-INSERT INTO streamingserie (FK_id_streaming, FK_id_serie) VALUES
-(1, 1),
-(2, 2),
-(3, 3);
+-- Inserir dados na tabela 'categoriafilme'
+INSERT INTO categoriafilme (FK_id_categoria, FK_id_filme)
+VALUES
+    (4, 4),
+    (5, 5),
+    (6, 6);
 
-INSERT INTO streamingfilme (FK_id_streaming, FK_id_filme) VALUES
-(1, 1),
-(2, 2),
-(3, 3);
+-- Inserir dados na tabela 'favatores'
+INSERT INTO favatores (FK_id, FK_login)
+VALUES
+    (1, 'user1'),
+    (2, 'user2'),
+    (3, 'user3');
 
-INSERT INTO categoriaserie (FK_id_categoria, FK_id_serie) VALUES
-(1, 1),
-(2, 2),
-(3, 3);
+-- Inserir dados na tabela 'streamingserie'
+INSERT INTO streamingserie (FK_id_streaming, FK_id_serie)
+VALUES
+    (1, 1),
+    (1, 2),
+    (2, 3);
 
-INSERT INTO categoriafilme (FK_id_categoria, FK_id_filme) VALUES
-(1, 1),
-(2, 2),
-(3, 3);
+-- Inserir dados na tabela 'streamingfilme'
+INSERT INTO streamingfilme (FK_id_streaming, FK_id_filme)
+VALUES
+    (1, 4),
+    (1, 5),
+    (2, 6);
 
-INSERT INTO atorfilme (FK_id_filme, FK_id_ator) VALUES
-(1, 1),
-(2, 2),
-(3, 3);
+-- Inserir dados na tabela 'atorfilme'
+INSERT INTO atorfilme (FK_id_filme, FK_id_ator)
+VALUES
+    (1, 1),
+    (2, 2),
+    (3, 3);
 
-INSERT INTO diretorfilme (FK_id_filme, FK_id_diretor) VALUES
-(1, 1),
-(2, 2),
-(3, 3);
+-- Inserir dados na tabela 'diretorfilme'
+INSERT INTO diretorfilme (FK_id_filme, FK_id_diretor)
+VALUES
+    (1, 1),
+    (2, 2),
+    (3, 3);
+
+-- Inserir dados na tabela 'atorepisodio'
+INSERT INTO atorepisodio (FK_id_ator, FK_id_serie, FK_temporada, FK_numero)
+VALUES
+    (1, 1, 1, 1),
+    (2, 2, 1, 1),
+    (3, 3, 1, 1);
+
+-- Inserir dados na tabela 'diretorepisodio'
+INSERT INTO diretorepisodio (FK_id_diretor, FK_id_serie, FK_temporada, FK_numero)
+VALUES
+    (1, 1, 1, 1),
+    (2, 2, 1, 1),
+    (3, 3, 1, 1);
+
+-- Inserir dados na tabela 'favserie'
+INSERT INTO favserie (FK_id_serie, FK_login)
+VALUES
+    (1, 'user1'),
+    (2, 'user2'),
+    (3, 'user3');
+
+-- Inserir dados na tabela 'favfilme'
+INSERT INTO favfilme (FK_id_filme, FK_login)
+VALUES
+    (4, 'user1'),
+    (5, 'user2'),
+    (6, 'user3');

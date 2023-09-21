@@ -7,6 +7,8 @@ CREATE TABLE usuarios(
     nome VARCHAR(50) NOT NULL,
     nascimento DATE NOT NULL,
     senha VARCHAR(50) NOT NULL,
+    foto VARCHAR(100),
+    bio VARCHAR(500),
     PRIMARY KEY(login)
 );
 
@@ -29,6 +31,22 @@ CREATE TABLE series(
     PRIMARY KEY(id)
 );
 
+CREATE TABLE preferencias(
+	FK_login VARCHAR(50),
+	FK_id INT,
+	PRIMARY KEY(FK_login, FK_id),
+	FOREIGN KEY (FK_login) REFERENCES usuarios(login),
+	FOREIGN KEY(FK_id) REFERENCES categorias(id)
+);
+
+CREATE TABLE favoritos(
+	FK_login1 VARCHAR(50),
+	FK_login2 VARCHAR(50),
+	FOREIGN KEY(FK_login1) REFERENCES usuarios(login),
+	FOREIGN KEY(FK_login2) REFERENCES usuarios(login),
+	PRIMARY KEY(FK_login1, FK_login2)
+);
+
 CREATE TABLE episodios(
 	temporada INT,
     numero INT,
@@ -36,6 +54,7 @@ CREATE TABLE episodios(
     classificacao INT NOT NULL,
     lancamento DATE NOT NULL,
     FK_id_serie INT,
+    sinopse VARCHAR(500),
     FOREIGN KEY(FK_id_serie) REFERENCES series(id),
     PRIMARY KEY(FK_id_serie,temporada,numero)
 );
@@ -45,6 +64,7 @@ CREATE TABLE filmes(
 	nome VARCHAR(50) NOT NULL,
     classificacao INT NOT NULL,
     lancamento DATE NOT NULL,
+    sinopse VARCHAR(500),
     PRIMARY KEY(id)
 );
 
@@ -52,6 +72,9 @@ CREATE TABLE atores(
 	id INT AUTO_INCREMENT,
     nome VARCHAR(50) NOT NULL,
     bio VARCHAR(500) NOT NULL,
+    foto varchar(100),
+    dtNasc DATE NOT NULL,
+    dtMorte DATE,
     PRIMARY KEY(id)
 );
 
@@ -83,7 +106,9 @@ CREATE TABLE usuarioserie(
     FK_id_serie INT,
     nota INT,
     avalicao VARCHAR(250),
-    favorito BOOL,
+    dtComentario DATE NOT NULL,
+	likes INT DEFAULT 0,
+    deslikes INT DEFAULT 0,
     FOREIGN KEY(FK_login) REFERENCES usuarios(login),
     FOREIGN KEY(FK_id_serie) REFERENCES series(id),
     PRIMARY KEY(FK_login, FK_id_serie)
@@ -94,10 +119,20 @@ CREATE TABLE usuariofilme(
     FK_id_filme INT,
     nota INT,
     avalicao VARCHAR(250),
-    favorito BOOL,
+    dtComentario DATE NOT NULL,
+    likes INT DEFAULT 0,
+    deslikes INT DEFAULT 0,
     FOREIGN KEY(FK_login) REFERENCES usuarios(login),
     FOREIGN KEY(FK_id_filme) REFERENCES filmes(id),
     PRIMARY KEY(FK_login, FK_id_filme)
+);
+
+CREATE TABLE favatores(
+	FK_id INT,
+	FK_login VARCHAR(50),
+	PRIMARY KEY(FK_id, FK_login),
+	FOREIGN KEY(FK_id) REFERENCES atores(id),
+	FOREIGN KEY(FK_login) REFERENCES usuarios(login)
 );
 
 CREATE TABLE streamingserie(
@@ -168,3 +203,25 @@ CREATE TABLE diretorfilme(
     PRIMARY KEY(FK_id_filme, FK_id_diretor)
 );
 
+CREATE TABLE pesquisas(
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	busca VARCHAR(100) NOT NULL,
+	FK_login VARCHAR(50),
+	FOREIGN KEY(FK_login) REFERENCES usuarios(login)
+);
+
+CREATE TABLE favserie(
+	FK_id_serie INT,
+    FK_login VARCHAR(50),
+    PRIMARY KEY(FK_login, FK_id_serie),
+    FOREIGN KEY(FK_login) REFERENCES usuarios(login),
+    FOREIGN KEY(FK_id_serie) REFERENCES series(id)
+);
+
+CREATE TABLE favfilme(
+	FK_id_filme INT,
+    FK_login VARCHAR(50),
+    PRIMARY KEY(FK_login, FK_id_filme),
+    FOREIGN KEY(FK_login) REFERENCES usuarios(login),
+    FOREIGN KEY(FK_id_filme) REFERENCES filmes(id)
+);
