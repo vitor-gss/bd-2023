@@ -48,8 +48,8 @@ CREATE TABLE favoritos(
 );
 
 CREATE TABLE episodios(
-	temporada INT,
-    numero INT,
+	temporada INT NOT NULL,
+    numero INT NOT NULL,
     nome VARCHAR(50) NOT NULL,
     classificacao INT NOT NULL,
     lancamento DATE NOT NULL,
