@@ -225,3 +225,12 @@ CREATE TABLE favfilme(
     FOREIGN KEY(FK_login) REFERENCES usuarios(login),
     FOREIGN KEY(FK_id_filme) REFERENCES filmes(id)
 );
+
+CREATE TABLE notificacao(
+	FK_login VARCHAR(50),
+    id INT AUTO_INCREMENT,
+    texto VARCHAR(200),
+    img VARCHAR(100),
+    PRIMARY KEY(id),
+    FOREIGN KEY(FK_login) REFERENCES usuarios(login)
+);
