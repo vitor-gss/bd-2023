@@ -28,6 +28,7 @@ CREATE TABLE streamings(
 CREATE TABLE series(
 	id INT AUTO_INCREMENT,
     nome VARCHAR(50) NOT NULL,
+    foto VARCHAR(100),
     PRIMARY KEY(id)
 );
 
@@ -39,7 +40,7 @@ CREATE TABLE preferencias(
 	FOREIGN KEY(FK_id) REFERENCES categorias(id)
 );
 
-CREATE TABLE favoritos(
+CREATE TABLE favusuario(
 	FK_login1 VARCHAR(50),
 	FK_login2 VARCHAR(50),
 	FOREIGN KEY(FK_login1) REFERENCES usuarios(login),
@@ -64,6 +65,7 @@ CREATE TABLE filmes(
 	nome VARCHAR(50) NOT NULL,
     classificacao INT NOT NULL,
     lancamento DATE NOT NULL,
+    foto VARCHAR(100),
     sinopse VARCHAR(500),
     PRIMARY KEY(id)
 );
