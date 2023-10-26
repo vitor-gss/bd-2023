@@ -61,6 +61,15 @@ id = 1
 //   console.log('Novo usuário inserido com sucesso, ID:', results.insertId);
 // });
 
+novoUsuario = { nome: 'User', email: "meuemail@meuemail.com" };
+sql = 'INSERT INTO usuarios SET ?'
+connection.query(sql, novoUsuario, (err, results) => {
+  if (err) {
+    console.error('Erro ao inserir dados:', err);
+    return;
+  }
+  console.log('Novo usuário inserido com sucesso, ID:', results.insertId);
+});
 
 // UPDATE
 // sql = 'UPDATE usuarios SET email = ? WHERE id = ?';
