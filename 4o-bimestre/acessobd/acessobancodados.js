@@ -3,7 +3,7 @@ const mysql = require('mysql');
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'root',
+  password: 'admin',
   database: 'acessobd',
   port: 3306, // Porta do MySQL, ajuste se necessário
 });
@@ -39,7 +39,7 @@ connection.query(sql, id, (err, results) => {
 });
 
 // INSERT
-const novoUsuario = ['Teste', "email@email.com"];
+let novoUsuario = ['Teste', "email@email.com"];
 sql = 'INSERT INTO usuarios (nome, email) VALUES (?,?)'
 connection.query(sql, novoUsuario, (err, results) => {
   if (err) {
@@ -49,6 +49,15 @@ connection.query(sql, novoUsuario, (err, results) => {
   console.log('Novo usuário inserido com sucesso, ID:', results.insertId);
 });
 
+novoUsuario = { nome: 'User', email: "meuemail@meuemail.com" };
+sql = 'INSERT INTO usuarios SET ?'
+connection.query(sql, novoUsuario, (err, results) => {
+  if (err) {
+    console.error('Erro ao inserir dados:', err);
+    return;
+  }
+  console.log('Novo usuário inserido com sucesso, ID:', results.insertId);
+});
 
 // UPDATE
 
