@@ -18,7 +18,8 @@ connection.connect((err) => {
 });
 
 // CREATE
-sql = "insert into usuarios (login, email, nome) values('Vitor', 'a@gma', 'vituuu')"
+/*
+sql = "insert into usuarios (login, email, nome, nascimento, senha) values('Vitor', 'a@gma', 'vituuu', '1975-04-25', 'senha')"
 connection.query(sql, (err, results) => {
   if (err) {
     console.error('Erro na consulta:', err);
@@ -26,6 +27,7 @@ connection.query(sql, (err, results) => {
   }
   console.log('Resultado da consulta:', results);
 });
+*/
 
 // READ
 /*
@@ -40,6 +42,15 @@ connection.query(sql, (err, results) => {
 */
 
 // UPDATE
+login = 'Vitor' 
+sql = "update usuarios set email='vgss4@aluno.instituto.federal.alagoas.edu.brasil' where login = ?"
+connection.query(sql, login, (err, results) => {
+  if(err){
+    console.error('Erro na consulta', err);
+    return
+  }
+  console.log('Email modificado', results);
+}) 
 // DELETE
 /*
 id = "user5"
