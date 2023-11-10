@@ -1,7 +1,7 @@
 const mysql = require('mysql');
 
 const connection = mysql.createConnection({
-  host: '192.168.3.53',
+  host: '10.140.40.23',
   user: 'testebd',
   password: 'testebd',
   database: 'streamflix',
